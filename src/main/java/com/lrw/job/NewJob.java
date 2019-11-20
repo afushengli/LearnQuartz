@@ -15,7 +15,7 @@ public class NewJob implements BaseJob {
      
     public void execute(JobExecutionContext context)  
         throws JobExecutionException {  
-    	//System.out.println("New Job执行时间: " + new Date());
+    	System.out.println("New Job执行时间: " + new Date());
           
     }  
 }  
