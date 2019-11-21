@@ -30,13 +30,12 @@ import com.github.pagehelper.PageInfo;
 
 @RestController
 @RequestMapping(value="/job")
-public class JobController 
-{
+public class JobController {
 	@Autowired
-	private IJobAndTriggerService iJobAndTriggerService;
+	private IJobAndTriggerService jobAndTriggerService;
 	
 	//加入Qulifier注解，通过名称注入bean
-	@Autowired 
+	@Autowired
 	@Qualifier("Scheduler")
 	private Scheduler scheduler;
 	
@@ -157,7 +156,7 @@ public class JobController
 	public Map<String, Object> queryjob(@RequestParam(value="pageNum")Integer pageNum, @RequestParam(value="pageSize")Integer pageSize) 
 	{			
 		System.out.println("----------------------------------");
-		PageInfo<JobAndTrigger> jobAndTrigger = iJobAndTriggerService.getJobAndTriggerDetails(pageNum, pageSize);
+		PageInfo<JobAndTrigger> jobAndTrigger = jobAndTriggerService.getJobAndTriggerDetails(pageNum, pageSize);
 		System.out.println(jobAndTrigger);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("JobAndTrigger", jobAndTrigger);
